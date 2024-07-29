@@ -1,28 +1,31 @@
-package Service;
+package com.asem.employee_management_system.Service;
 
-import Entity.Employee;
-import Repository.EmployeeRepository;
+import com.asem.employee_management_system.Entity.Employee;
+import com.asem.employee_management_system.Repository.EmployeeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 
-public class EmployeeServiceImpl implements EmployeeService{
-    private EmployeeRepository employeerepository;
+@Service
+public class EmployeeServiceImpl implements EmployeeService {
+
+    private EmployeeRepository employeeRepository;
 
     @Autowired
     public EmployeeServiceImpl(EmployeeRepository theEmployeeRepository) {
-        employeerepository = theEmployeeRepository;
+        employeeRepository = theEmployeeRepository;
     }
 
     @Override
     public List<Employee> findAll() {
-        return employeerepository.findAll();
+        return employeeRepository.findAll();
     }
 
     @Override
     public Employee findById(int theId) {
-        Optional<Employee> result = employeerepository.findById(theId);
+        Optional<Employee> result = employeeRepository.findById(theId);
 
         Employee theEmployee = null;
 
@@ -39,13 +42,11 @@ public class EmployeeServiceImpl implements EmployeeService{
 
     @Override
     public Employee save(Employee theEmployee) {
-        return employeerepository.save(theEmployee);
+        return employeeRepository.save(theEmployee);
     }
 
     @Override
     public void deleteById(int theId) {
-        employeerepository.deleteById(theId);
+        employeeRepository.deleteById(theId);
     }
 }
-
-

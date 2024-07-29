@@ -1,10 +1,11 @@
-package Service;
+package com.asem.employee_management_system.Service;
 
-import Entity.Employee;
+import com.asem.employee_management_system.Entity.Employee;
 
 import java.util.List;
 
 public interface EmployeeService {
+
     List<Employee> findAll();
 
     Employee findById(int theId);
@@ -12,4 +13,5 @@ public interface EmployeeService {
     Employee save(Employee theEmployee);
 
     void deleteById(int theId);
+
 }
